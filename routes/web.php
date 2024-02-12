@@ -5,6 +5,10 @@ use App\Models\Students;
 use App\Http\Controllers\StudentsControllers;
 use App\Models\Extracurricular;
 use App\Http\Controllers\ExtracurricularController;
+use App\Models\Kelas;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\LoginController;
+
 
 
 /*
@@ -37,13 +41,81 @@ Route::get('/about', function () {
         "image" => "img/saya.jpg",
         "title" => "about"
     ]);
-}); 
-Route::get('/student', [
-    StudentsControllers::class, 'index'
-]
-); 
+});
 
 Route::get('/extracurricular', [
     ExtracurricularController::class, 'index1'
 ]
-); 
+);
+
+Route::group(["prefix" => "/student"], function(){
+    Route::get('/all', [
+        StudentsControllers::class, 'index'
+    ]
+    ); 
+    Route::get('/detail/{student}', [
+        StudentsControllers::class, 'show'
+    ]
+    ); 
+    Route::get('/create', [
+        StudentsControllers::class, 'create'
+    ]
+    ); 
+    Route::post('/add', [
+        StudentsControllers::class, 'store'
+    ]
+    ); 
+    Route::delete('/delete/{id}', [
+        StudentsControllers::class, 'destroy'
+    ]
+    ); 
+    Route::get('/edit/{student}', [
+        StudentsControllers::class, 'edit'
+    ]
+    );
+    Route::post('/update/{student}', [
+        StudentsControllers::class, 'update'
+    ]
+    ); 
+});
+
+Route::group(["prefix" => "/kelas"], function(){
+    Route::get('/all', [
+        KelasController::class, 'index'
+    ]
+    ); 
+    Route::get('/detail/{kelas}', [
+        KelasController::class, 'show'
+    ]
+    ); 
+    Route::get('/create', [
+        KelasController::class, 'create'
+    ]
+    ); 
+    Route::post('/add', [
+        KelasController::class, 'store'
+    ]
+    ); 
+    Route::delete('/delete/{id}', [
+        KelasController::class, 'destroy'
+    ]
+    ); 
+    Route::get('/edit/{kelas}', [
+        KelasController::class, 'edit'
+    ]
+    );
+    Route::post('/update/{kelas}', [
+        KelasController::class, 'update'
+    ]
+    ); 
+});
+
+    Route::get('/login', [
+        LoginController::class, 'index'
+    ]
+    ); 
+    
+    Route::get('/register', [
+        LoginController::class, 'register'
+    ]
+    ); 
