@@ -8,6 +8,8 @@ use App\Http\Controllers\ExtracurricularController;
 use App\Models\Kelas;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 
 
 
@@ -113,9 +115,27 @@ Route::group(["prefix" => "/kelas"], function(){
     Route::get('/login', [
         LoginController::class, 'index'
     ]
-    ); 
+    )->name('login') ->middleware('guest');
+     
+    Route::post('/login', [
+        LoginController::class, 'auth'
+    ]
+    );
     
     Route::get('/register', [
-        LoginController::class, 'register'
+        RegisterController::class, 'register'
     ]
     ); 
+    Route::post('/register', [
+        RegisterController::class, 'store'
+    ]
+    ); 
+
+    Route::group(["prefix" => "/dashboard"], function(){
+
+        Route::get('/', [
+            DashboardController::class, 'index'
+        ]
+        )->middleware('auth');
+    });
+    

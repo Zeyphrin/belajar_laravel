@@ -2,6 +2,20 @@
 
 @section('content')
 
+@if (session()->has('success'))
+<div class="alert alert-success" role="alert">
+  {{ session('success') }}
+</div>
+
+
+@elseif (session()->has('loginError'))
+<div class="alert alert-danger col-lg-12" role="alert">
+  {{ session('loginError') }}
+</div>
+
+@endif
+
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
@@ -24,16 +38,17 @@
     <link href="style.css" rel="stylesheet">
     
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form action="/login" method="POST">
+    @csrf
     <img class="mb-4" src="img/Neon Genesis GIF - Neon Genesis Evangelion - GIF を見つけて共有する.gif" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="password" placeholder="Password" name="password">
       <label for="floatingPassword">Password</label>
     </div>
 
