@@ -6,15 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Kelas;
 
-class StudentsControllers extends Controller
+class DashboardStudentController extends Controller
 {
     public static function index() {
 
-        return view ('student/all', 
+        return view ('dashboard.dashboard', 
         ["title" => "student",
           "students" => Student::all()]);
     }
-
 
     public function create(){
         return view('student.create', [
@@ -77,6 +76,4 @@ class StudentsControllers extends Controller
             "student" => $student
         ]);
     }
-
-
 }

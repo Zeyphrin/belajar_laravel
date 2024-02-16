@@ -14,7 +14,7 @@
   </thead>
   <tbody>
       <tr>
-      @foreach ($extracurricular as $key => $item)
+      @foreach ($extras as $key => $item)
       <th scope="row">{{$key + 1 }}</th>
           <td>{{$item['nama']}}</td>
           <td>{{$item['pembina']}}</td>

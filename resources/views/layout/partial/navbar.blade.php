@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">RusAcademy</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,7 +36,7 @@
                     <li>
                         <form action="/logout" method="POST">
                             @csrf
-                            <a type="submit" class="droapdown-item">Logout</a>
+                            <li><button type="submit" class="dropdown-item" id="logout">Logout</button></li>
                         </form>
                     </li>
                 </ul>

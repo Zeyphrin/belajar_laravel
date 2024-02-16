@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
-
 use Illuminate\Http\Request;
 
-class KelasController extends Controller
+class DashboardKelasController extends Controller
 {
     public static function index() {
-        return view ('kelas/all', 
+        return view ('dashboard.kelas', 
         ["title" => "kelas",
           "kelas" => Kelas::all()]);
     }

@@ -41,7 +41,7 @@
   <form action="/login" method="POST">
     @csrf
     <img class="mb-4" src="img/Neon Genesis GIF - Neon Genesis Evangelion - GIF を見つけて共有する.gif" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal">Please Login</h1>
 
     <div class="form-floating">
       <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
@@ -58,7 +58,7 @@
         Remember me
       </label>
     </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+    <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
     <p class="mt-5 mb-3 text-body-secondary">Didnt have account? <a href="/register">Register here!</a></p>
   </form>

@@ -10,7 +10,8 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\DashboardStudentController;
+use App\Http\Controllers\DashboardKelasController;
 
 
 /*
@@ -121,6 +122,11 @@ Route::group(["prefix" => "/kelas"], function(){
         LoginController::class, 'auth'
     ]
     );
+
+    Route::post('/logout', [
+        LoginController::class, 'logout'
+    ]
+    ); 
     
     Route::get('/register', [
         RegisterController::class, 'register'
@@ -137,5 +143,17 @@ Route::group(["prefix" => "/kelas"], function(){
             DashboardController::class, 'index'
         ]
         )->middleware('auth');
+        
+        Route::get('/student', [
+            DashboardStudentController::class, 'index'
+        ]
+        )->middleware('auth');
+
+        Route::get('/kelas', [
+            DashboardKelasController::class, 'index'
+        ]
+        )->middleware('auth');
+        
     });
     
+
