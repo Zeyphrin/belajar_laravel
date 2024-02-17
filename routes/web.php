@@ -144,7 +144,7 @@ Route::group(["prefix" => "/kelas"], function(){
         ]
         )->middleware('auth');
         
-        Route::get('/student', [
+        Route::get('/student', [ 
             DashboardStudentController::class, 'index'
         ]
         )->middleware('auth');

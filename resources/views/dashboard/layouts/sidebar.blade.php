@@ -16,6 +16,11 @@
               Class
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2 " href="/home" id="home">
+              Home
+            </a>
+          </li>
         </ul>
 
         <hr class="my-3">

@@ -29,7 +29,7 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="true">Selamat Datang, {{ auth()->user()->name }} </button>
                 <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end">
-                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/student">Dashboard</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

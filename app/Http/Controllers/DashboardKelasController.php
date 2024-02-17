@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class DashboardKelasController extends Controller
 {
     public static function index() {
-        return view ('dashboard.kelas', 
+        return view ('dashboard.dashboardkelas', 
         ["title" => "kelas",
           "kelas" => Kelas::all()]);
     }
