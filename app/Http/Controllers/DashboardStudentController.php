@@ -8,11 +8,26 @@ use App\Models\Kelas;
 
 class DashboardStudentController extends Controller
 {
-    public static function index() {
+    public static function index(Request $request) {
+        $title = "student";
+        $perPage = 10; 
+    
 
-        return view ('dashboard.dashboard', 
-        ["title" => "student",
-          "students" => Student::all()]);
+        $search = $request->input('search');
+    
+
+        $query = Student::query();
+
+        if (!empty($search)) {
+            $query->where('nama', 'like', '%' . $search . '%')
+                  ->orWhere('nis', 'like', '%' . $search . '%');
+        }
+    
+
+        $students = $query->paginate($perPage);
+    
+
+        return view('dashboard.dashboard', compact('title', 'students', 'search'));
     }
 
     public function create(){

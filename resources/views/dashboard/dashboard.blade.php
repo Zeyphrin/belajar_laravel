@@ -16,12 +16,12 @@
 
 <div class="row mb-3">
   <div class="col-md-6">
-      <form action="/student/all" method="GET">
+      <form action="/dashboard/student" method="GET">
           <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Search..." name="search">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-            </div>
-          </form>
+              <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ $search ?? '' }}">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+          </div>
+      </form>
   </div>
 </div>
 
@@ -57,4 +57,8 @@
           
   </tbody>
 </table>
+
+<div class="d-flex justify-content-center mt-4">
+  {{ $students->links('pagination::bootstrap-4') }}
+</div>
 @endsection

@@ -45,7 +45,6 @@
     </tbody>
 </table>
 
-<!-- Tampilkan Link Paginasi -->
 
 <div class="d-flex justify-content-center mt-4">
     {{ $students->links('pagination::bootstrap-4') }}
